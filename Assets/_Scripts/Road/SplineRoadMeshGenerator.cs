@@ -9,6 +9,7 @@ public class SplineRoadMeshGenerator : MonoBehaviour
 {
     [SerializeField] private SplineContainer _splineContainer;
     [SerializeField] int _splineIndex;
+    [SerializeField] SplineRoadLane _splineRoadLane;
 
     [Header("Road Parameters")]
     [SerializeField] private float _roadWitdh;
@@ -30,6 +31,7 @@ public class SplineRoadMeshGenerator : MonoBehaviour
     void Awake()
     {
         _meshFilter = GetComponent<MeshFilter>();
+        _splineRoadLane = GetComponent<SplineRoadLane>();
     }
 
     void Update()
@@ -40,12 +42,14 @@ public class SplineRoadMeshGenerator : MonoBehaviour
     private void OnValidate() 
     {
         GetVerts();
+        _splineRoadLane.CreateLanes();
     }
 
     private void OnEnable() 
     {
         Spline.Changed += OnSplineChanged;
         GetVerts();
+        _splineRoadLane.CreateLanes();
     }
 
     private void OnDisable() 
@@ -56,6 +60,7 @@ public class SplineRoadMeshGenerator : MonoBehaviour
     private void OnSplineChanged(Spline arg1, int arg2, SplineModification arg3)
     {
         GetVerts();
+        _splineRoadLane.CreateLanes();
     }
 
     private void OnDrawGizmos() 

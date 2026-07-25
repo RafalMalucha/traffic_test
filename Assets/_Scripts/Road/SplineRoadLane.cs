@@ -11,6 +11,9 @@ public class SplineRoadLane : MonoBehaviour
     [SerializeField] int _splineIndex;
     [SerializeField] private float _resolution;
 
+    [Header("Test Car")]
+    [SerializeField] private GameObject _testCar;
+
     private float3 position;
     private float3 forward;
     private float3 upVector;
@@ -38,6 +41,11 @@ public class SplineRoadLane : MonoBehaviour
     }
 
     private void OnValidate() 
+    {
+        GetLanes();
+    }
+
+    public void CreateLanes()
     {
         GetLanes();
     }
@@ -79,5 +87,10 @@ public class SplineRoadLane : MonoBehaviour
         float3 right = Vector3.Cross(forward, upVector).normalized;
         lane1 = position + (right * 3f);
         lane2 = position + (-right * 3f);
+    }
+
+    public List<Vector3> GetLane1()
+    {
+        return nodesLane1;
     }
 }
