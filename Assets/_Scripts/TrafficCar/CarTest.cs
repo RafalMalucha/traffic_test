@@ -40,7 +40,6 @@ public class CarTest : MonoBehaviour
         yield return null;
     }
 
-    // Update is called once per frame
     void Update()
     {
         distancePercentage += 15.0f * Time.deltaTime / splineLenght;
