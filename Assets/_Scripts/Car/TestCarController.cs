@@ -4,7 +4,6 @@ using UnityEngine.InputSystem;
 
 public class TestCarController : MonoBehaviour
 {
-    [SerializeField] private InputActionAsset _inputManager;
     [SerializeField] private Rigidbody _carRigidbody;
 
     [SerializeField] private float acceleration = 10f;
@@ -12,66 +11,21 @@ public class TestCarController : MonoBehaviour
     [SerializeField] private float steering = 25f;
     [SerializeField] private float brakeForce = 25f;
 
-    private Quaternion _initRotation;
-    private Quaternion _targetDirection;
-    private float _targetSpeed;
+    private float throttle;
+    private float steeringInput;
 
-    private float _speedInterpolationStrength = 5f;
-    private float _rotationInterpolationStrength = 100f; 
-
-    private InputAction _accel;
-    private InputAction _break;
-    private InputAction _turnLeft;
-    private InputAction _turnRight;
-
-    private void OnEnable() 
-    {
-        _inputManager.FindActionMap("Player").Enable();
-    }
-
-    private void OnDisable() 
-    {
-        _inputManager.FindActionMap("Player").Disable();
-    }
     void Awake()
     {
-        _inputManager.FindActionMap("Player").Enable();
-
-        _accel = InputSystem.actions.FindAction("Car_Accel");
-        _break = InputSystem.actions.FindAction("Car_Break");
-        _turnLeft = InputSystem.actions.FindAction("Car_TurnLeft");
-        _turnRight = InputSystem.actions.FindAction("Car_TurnRight");
-
         _carRigidbody = GetComponent<Rigidbody>();
-
-        _initRotation = _carRigidbody.rotation * Quaternion.identity;
     }
 
     void Update()
     {
-        float vertical = 0f;
-        float horizontal = 0f;
+        //float throttle = 0f;
+        //float steeringInput = 0f;
 
-        if(_accel.ReadValue<float>() > 0)
-        {
-            vertical += 1f;
-        }
-        if(_break.ReadValue<float>() > 0)
-        {
-            vertical += -1f;
-        }
-
-        if(_turnRight.ReadValue<float>() > 0)
-        {
-            horizontal += 1f;
-        }
-        if(_turnLeft.ReadValue<float>() > 0)
-        {
-            horizontal += -1f;
-        }
-
-        Drive(vertical);
-        Steer(horizontal);
+        Drive(throttle);
+        Steer(steeringInput);
     }
 
     private void Drive(float throttle)
@@ -117,6 +71,16 @@ public class TestCarController : MonoBehaviour
                          * Time.fixedDeltaTime;
 
         transform.Rotate(0f, rotation, 0f);
+    }
+
+    public void SetThrottle(float newThrottle)
+    {
+        throttle = newThrottle;
+    }
+
+    public void SetSteeringInput(float newSteeringInput)
+    {
+        steeringInput = newSteeringInput;
     }
 }
 
