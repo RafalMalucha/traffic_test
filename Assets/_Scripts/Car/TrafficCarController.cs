@@ -2,18 +2,43 @@ using UnityEngine;
 
 public class TrafficCarController : MonoBehaviour
 {
-    [SerializeField] private GameObject _target;
+    [SerializeField] private Transform[] _waypoints;
     [SerializeField] private TestCarController _testCarController;
     
-    void Start()
+    private int _currentWaypoint;
+
+    private void Update()
     {
-        
+        FollowLane();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FollowLane()
     {
+        Transform target = _waypoints[_currentWaypoint];
+
+        Vector3 direction = target.position - transform.position;
+
+        if (direction.magnitude < 3f)
+        {
+            _currentWaypoint++;
+
+            if (_currentWaypoint >= _waypoints.Length)
+            {
+                _currentWaypoint = 0;
+            }
+
+            return;
+        }
+
+        Vector3 localDirection = transform.InverseTransformDirection(direction.normalized);
+
+        // -1 = left
+        //  0 = straight
+        // +1 = right
+        float steeringInput = localDirection.x;
+
+        _testCarController.SetSteeringInput(steeringInput);
+
         _testCarController.SetThrottle(1f);
-        _testCarController.SetSteeringInput(Random.Range(-1f, 1f));
     }
 }
