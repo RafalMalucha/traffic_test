@@ -6,10 +6,10 @@ public class TestCarController : MonoBehaviour
 {
     [SerializeField] private Rigidbody _carRigidbody;
 
-    [SerializeField] private float acceleration = 10f;
-    [SerializeField] private float maxSpeed = 20f;
-    [SerializeField] private float steering = 25f;
-    [SerializeField] private float brakeForce = 25f;
+    [SerializeField] private float _acceleration = 10f;
+    [SerializeField] private float _maxSpeed = 20f;
+    [SerializeField] private float _steering = 25f;
+    [SerializeField] private float _brakeForce = 25f;
 
     private float throttle;
     private float steeringInput;
@@ -33,14 +33,14 @@ public class TestCarController : MonoBehaviour
         if (throttle > 0f)
         {
             _carRigidbody.AddForce(
-                transform.forward * throttle * acceleration,
+                transform.forward * throttle * _acceleration,
                 ForceMode.Force
             );
         }
         else if (throttle < 0f)
         {
             _carRigidbody.AddForce(
-                transform.forward * throttle * brakeForce,
+                transform.forward * throttle * _brakeForce,
                 ForceMode.Force
             );
         }
@@ -49,8 +49,8 @@ public class TestCarController : MonoBehaviour
 
         localVelocity.z = Mathf.Clamp(
             localVelocity.z,
-            -maxSpeed * 0.5f,
-            maxSpeed
+            -_maxSpeed * 0.5f,
+            _maxSpeed
         );
 
         _carRigidbody.linearVelocity = transform.TransformDirection(localVelocity);
@@ -62,11 +62,11 @@ public class TestCarController : MonoBehaviour
             return;
 
         float speedFactor = Mathf.Clamp01(
-            _carRigidbody.linearVelocity.magnitude / maxSpeed
+            _carRigidbody.linearVelocity.magnitude / _maxSpeed
         );
 
         float rotation = steeringInput
-                         * steering
+                         * _steering
                          * speedFactor
                          * Time.fixedDeltaTime;
 
@@ -81,6 +81,11 @@ public class TestCarController : MonoBehaviour
     public void SetSteeringInput(float newSteeringInput)
     {
         steeringInput = newSteeringInput;
+    }
+
+    public void SetNewMaxSpeed(float newMaxSpeed)
+    {
+        _maxSpeed = newMaxSpeed;
     }
 }
 

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class TrafficCarController : MonoBehaviour
 {
-    [SerializeField] private Transform[] _waypoints;
+    [SerializeField] private Lane _currnetLane;
     [SerializeField] private TestCarController _testCarController;
     
     private int _currentWaypoint;
@@ -14,7 +14,7 @@ public class TrafficCarController : MonoBehaviour
 
     private void FollowLane()
     {
-        Transform target = _waypoints[_currentWaypoint];
+        Transform target = _currnetLane.GetLanePoints()[_currentWaypoint];
 
         Vector3 direction = target.position - transform.position;
 
@@ -22,7 +22,7 @@ public class TrafficCarController : MonoBehaviour
         {
             _currentWaypoint++;
 
-            if (_currentWaypoint >= _waypoints.Length)
+            if (_currentWaypoint >= _currnetLane.GetLanePoints().Length)
             {
                 _currentWaypoint = 0;
             }
@@ -40,5 +40,10 @@ public class TrafficCarController : MonoBehaviour
         _testCarController.SetSteeringInput(steeringInput);
 
         _testCarController.SetThrottle(1f);
+    }
+
+    public void SetNewLane(Lane newLane)
+    {
+        _currnetLane = newLane;
     }
 }
