@@ -1,11 +1,13 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TrafficCarController : MonoBehaviour
 {
-    [SerializeField] private Lane _currnetLane;
+    //[SerializeField] private Lane _currnetLane;
+    [SerializeField] private SplineRoadLane _splineRoadLane;
     [SerializeField] private TestCarController _testCarController;
     
-    private int _currentWaypoint;
+    private int _currentLaneNode;
 
     private void Update()
     {
@@ -14,17 +16,17 @@ public class TrafficCarController : MonoBehaviour
 
     private void FollowLane()
     {
-        Transform target = _currnetLane.GetLanePoints()[_currentWaypoint];
+        Vector3 target = _splineRoadLane.GetLaneNodes()[_currentLaneNode];
 
-        Vector3 direction = target.position - transform.position;
+        Vector3 direction = target - transform.position;
 
         if (direction.magnitude < 3f)
         {
-            _currentWaypoint++;
+            _currentLaneNode++;
 
-            if (_currentWaypoint >= _currnetLane.GetLanePoints().Length)
+            if (_currentLaneNode >= _splineRoadLane.GetLaneNodes().Count)
             {
-                _currentWaypoint = 0;
+                _currentLaneNode = 0;
             }
 
             return;
@@ -44,6 +46,11 @@ public class TrafficCarController : MonoBehaviour
 
     public void SetNewLane(Lane newLane)
     {
-        _currnetLane = newLane;
+        //_currnetLane = newLane;
+    }
+
+    public void SetNewSplineRoadLaneNodes(List<Vector3> newSplineRoadLaneNodes)
+    {
+        //_splineRoadLaneNodes = newSplineRoadLaneNodes;
     }
 }
