@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class IntersectionExitTrigger : MonoBehaviour
 {
-    [SerializeField] private Lane _lane;
+    [SerializeField] private SplineRoadLane _lane;
     
     private void OnTriggerEnter(Collider collider) 
     {
         if (collider.tag == "Traffic")
         {
-            collider.GetComponent<TrafficCarController>().SetNewLane(_lane);
-            collider.GetComponent<TestCarController>().SetNewMaxSpeed(10f);
+            collider.GetComponent<TrafficCarController>().SetNewSplineRoadLaneNodes(_lane);
+            collider.GetComponent<TestCarController>().SetNewMaxSpeed(3f);
         }
     }
 }

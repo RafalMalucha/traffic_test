@@ -49,8 +49,8 @@ public class TrafficCarController : MonoBehaviour
         //_currnetLane = newLane;
     }
 
-    public void SetNewSplineRoadLaneNodes(List<Vector3> newSplineRoadLaneNodes)
+    public void SetNewSplineRoadLaneNodes(SplineRoadLane newSplineRoadLane)
     {
-        //_splineRoadLaneNodes = newSplineRoadLaneNodes;
+        _splineRoadLane = newSplineRoadLane;
     }
 }
