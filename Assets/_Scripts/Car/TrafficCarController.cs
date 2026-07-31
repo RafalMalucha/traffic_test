@@ -91,6 +91,7 @@ public class TrafficCarController : MonoBehaviour
 
     public void SetNewSplineRoadLaneNodes(SplineRoadLane newSplineRoadLane)
     {
+        _currentLaneNode = 0;
         _splineRoadLane = newSplineRoadLane;
     }
 }
