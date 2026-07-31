@@ -20,7 +20,8 @@ public class CarSpawner : MonoBehaviour
         while(true)
         {
             yield return new WaitForSeconds(Random.Range(10, 30));
-            GameObject newCar = Instantiate(_carPrefab, transform.position, Quaternion.identity);
+            GameObject newCar = Instantiate(_carPrefab, transform.position, transform.rotation);
+            newCar.GetComponent<TestCarController>().SetNewMaxSpeed(3f);
         }   
     }
 }

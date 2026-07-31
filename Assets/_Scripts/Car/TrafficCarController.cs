@@ -71,9 +71,9 @@ public class TrafficCarController : MonoBehaviour
         {
             Vector3 origin = transform.TransformPoint(offset);
 
-            Debug.DrawRay(origin, transform.forward * 3f, Color.green);
+            Debug.DrawRay(origin, transform.forward * 4f, Color.green);
 
-            if (Physics.Raycast(origin, transform.forward, out RaycastHit hit, 3f))
+            if (Physics.Raycast(origin, transform.forward, out RaycastHit hit, 4f))
             {
                 if (!hit.collider.CompareTag("TrafficTrigger"))
                 {

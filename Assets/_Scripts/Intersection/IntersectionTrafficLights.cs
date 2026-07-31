@@ -40,7 +40,7 @@ public class IntersectionTrafficLights : MonoBehaviour
                 stl1.ChangeLight();
             }
 
-            yield return new WaitForSeconds(10);
+            yield return new WaitForSeconds(3);
         }
     }
 }
