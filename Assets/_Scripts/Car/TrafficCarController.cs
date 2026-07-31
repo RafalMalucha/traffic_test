@@ -11,7 +11,16 @@ public class TrafficCarController : MonoBehaviour
 
     private void Update()
     {
-        FollowLane();
+        if(_splineRoadLane)
+        {
+            FollowLane();
+        }
+        else
+        {
+            NoLaneJustGoForward();
+        }
+
+        HandleObstacles();
     }
 
     private void FollowLane()
@@ -42,6 +51,27 @@ public class TrafficCarController : MonoBehaviour
         _testCarController.SetSteeringInput(steeringInput);
 
         _testCarController.SetThrottle(1f);
+    }
+
+    private void NoLaneJustGoForward()
+    {
+        _testCarController.SetThrottle(1f);
+    }
+
+    private void HandleObstacles()
+    {
+        Ray ray = new Ray(transform.position, transform.forward);
+        RaycastHit _raycastHit;
+
+        Debug.DrawRay(ray.origin, ray.direction * 5, Color.green);
+
+        if (Physics.Raycast(ray, out _raycastHit, 5))
+        {
+            if (_raycastHit.collider.tag != "TrafficTrigger")
+            {
+                _testCarController.SetThrottle(0f);
+            }
+        }
     }
 
     public void SetNewLane(Lane newLane)
