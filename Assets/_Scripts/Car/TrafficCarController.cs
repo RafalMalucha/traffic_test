@@ -60,16 +60,26 @@ public class TrafficCarController : MonoBehaviour
 
     private void HandleObstacles()
     {
-        Ray ray = new Ray(transform.position, transform.forward);
-        RaycastHit _raycastHit;
-
-        Debug.DrawRay(ray.origin, ray.direction * 5, Color.green);
-
-        if (Physics.Raycast(ray, out _raycastHit, 5))
+        Vector3[] rayOffsets =
         {
-            if (_raycastHit.collider.tag != "TrafficTrigger")
+            Vector3.zero,
+            Vector3.right,
+            Vector3.left
+        };
+
+        foreach (Vector3 offset in rayOffsets)
+        {
+            Vector3 origin = transform.TransformPoint(offset);
+
+            Debug.DrawRay(origin, transform.forward * 3f, Color.green);
+
+            if (Physics.Raycast(origin, transform.forward, out RaycastHit hit, 3f))
             {
-                _testCarController.SetThrottle(0f);
+                if (!hit.collider.CompareTag("TrafficTrigger"))
+                {
+                    _testCarController.SetThrottle(0f);
+                    return;
+                }
             }
         }
     }
