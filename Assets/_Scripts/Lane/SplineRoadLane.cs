@@ -4,7 +4,8 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Splines;
 
-[ExecuteInEditMode()]
+
+[ExecuteAlways]
 public class SplineRoadLane : MonoBehaviour
 {
     [SerializeField] private SplineContainer _splineContainer;
@@ -19,11 +20,6 @@ public class SplineRoadLane : MonoBehaviour
     private float3 nodePosition;
 
     void Start()
-    {
-        
-    }
-
-    private void OnValidate() 
     {
         CreateLaneNodes();
     }
@@ -59,10 +55,12 @@ public class SplineRoadLane : MonoBehaviour
     {
         //Handles.matrix = transform.localToWorldMatrix;
 
-        foreach(Vector3 nodePosition in _laneNodesPositions)
+        if(_laneNodesPositions != null)
         {
-            Handles.SphereHandleCap(0, nodePosition, Quaternion.identity, 1f, EventType.Repaint);
-            
+            foreach(Vector3 nodePosition in _laneNodesPositions)
+            {
+                Handles.SphereHandleCap(0, nodePosition, Quaternion.identity, 1f, EventType.Repaint);
+            }
         }
     }
 
