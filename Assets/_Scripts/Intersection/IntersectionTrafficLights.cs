@@ -34,13 +34,12 @@ public class IntersectionTrafficLights : MonoBehaviour
             {
                 stl2.ChangeLight();
             }   
-            yield return new WaitForSeconds(1);
             foreach(SingleTrafficLight stl1 in _trafficLightsAxis1)
             {
                 stl1.ChangeLight();
             }
 
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(10);
         }
     }
 }
