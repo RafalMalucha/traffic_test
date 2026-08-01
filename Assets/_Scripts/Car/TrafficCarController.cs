@@ -1,11 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
 public class TrafficCarController : MonoBehaviour
 {
     //[SerializeField] private Lane _currnetLane;
     [SerializeField] private SplineRoadLane _splineRoadLane;
     [SerializeField] private TestCarController _testCarController;
+
+    private bool _recentlyParked = false;
     
     private int _currentLaneNode;
 
@@ -93,5 +96,23 @@ public class TrafficCarController : MonoBehaviour
     {
         _currentLaneNode = 0;
         _splineRoadLane = newSplineRoadLane;
+    }
+
+    public void SetRecentlyParked(bool newValue)
+    {
+        _recentlyParked = newValue;
+        StartCoroutine(ResetRecentlyParked());
+    }
+
+    public bool GetRecentlyParked()
+    {
+        return _recentlyParked;
+    }
+
+    IEnumerator ResetRecentlyParked()
+    {
+        yield return new WaitForSeconds(Random.Range(60, 90));
+
+        _recentlyParked = false;
     }
 }

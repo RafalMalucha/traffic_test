@@ -21,7 +21,7 @@ public class SingleParkingSpot : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider) 
     {
-        if (collider.tag == "Traffic" && _isOccupied == false)
+        if (collider.tag == "Traffic" && _isOccupied == false && !collider.GetComponent<TrafficCarController>().GetRecentlyParked())
         {
             _isOccupied = true;
             collider.GetComponent<TrafficCarController>().enabled = false;
@@ -38,12 +38,13 @@ public class SingleParkingSpot : MonoBehaviour
 
     IEnumerator TrafficCarInParkingSpace(Collider collider)
     {
-        yield return new WaitForSeconds(Random.Range(5, 6));
+        yield return new WaitForSeconds(Random.Range(15, 30));
 
         collider.transform.position = _savedTrafficPosition;
         collider.transform.rotation = _savedTrafficRotation;
 
         collider.GetComponent<TrafficCarController>().enabled = true;
+        collider.GetComponent<TrafficCarController>().SetRecentlyParked(true);
         collider.GetComponent<TestCarController>().enabled = true;
 
         yield return new WaitForSeconds(2);
