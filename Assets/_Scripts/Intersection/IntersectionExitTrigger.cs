@@ -9,7 +9,7 @@ public class IntersectionExitTrigger : MonoBehaviour
         if (collider.tag == "Traffic")
         {
             collider.GetComponent<TrafficCarController>().SetNewSplineRoadLaneNodes(_lane);
-            collider.GetComponent<TestCarController>().SetNewMaxSpeed(3f);
+            //collider.GetComponent<TestCarController>().SetNewMaxSpeed(3f);
         }
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
+using Unity.VisualScripting;
 
 public class TrafficCarController : MonoBehaviour
 {
@@ -11,6 +12,11 @@ public class TrafficCarController : MonoBehaviour
     private bool _recentlyParked = false;
     
     private int _currentLaneNode;
+
+    private void Start()
+    {
+        _testCarController.SetNewMaxSpeed(Random.Range(2f, 5f));
+    }
 
     private void Update()
     {

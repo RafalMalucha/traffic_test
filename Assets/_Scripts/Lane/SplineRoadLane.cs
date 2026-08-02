@@ -8,6 +8,10 @@ using UnityEngine.Splines;
 [ExecuteAlways]
 public class SplineRoadLane : MonoBehaviour
 {
+    [Header("Lane Type")]
+    [SerializeField] private RoadLaneType _roadLaneType; 
+    [Space][Space]
+
     [SerializeField] private SplineContainer _splineContainer;
     [SerializeField] private float _resolution;
     
@@ -67,5 +71,10 @@ public class SplineRoadLane : MonoBehaviour
     public List<Vector3> GetLaneNodes()
     {
         return _laneNodesPositions;
+    }
+
+    public RoadLaneType GetRoadLaneType()
+    {
+        return _roadLaneType;
     }
 }

@@ -12,7 +12,7 @@ public class ParkingTurnTrigger : MonoBehaviour
             if(randomTurn == 1)
             {
                 collider.GetComponent<TrafficCarController>().SetNewSplineRoadLaneNodes(_lane);
-                collider.GetComponent<TestCarController>().SetNewMaxSpeed(3f);
+                //collider.GetComponent<TestCarController>().SetNewMaxSpeed(3f);
             }
         }
     }

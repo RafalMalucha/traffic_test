@@ -10,7 +10,7 @@ public class IntersectionEntryTrigger : MonoBehaviour
         {
             Debug.Log("enter intersection");
             collider.GetComponent<TrafficCarController>().SetNewSplineRoadLaneNodes(_lanes[(int)Random.Range(0, _lanes.Length)]);
-            collider.GetComponent<TestCarController>().SetNewMaxSpeed(3f);
+            //collider.GetComponent<TestCarController>().SetNewMaxSpeed(3f);
         }
     }
 }
