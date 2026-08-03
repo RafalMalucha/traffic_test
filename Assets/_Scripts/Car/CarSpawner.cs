@@ -9,18 +9,12 @@ public class CarSpawner : MonoBehaviour
         StartCoroutine(SpawnCarsRandomInterval());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     IEnumerator SpawnCarsRandomInterval()
     {
-        while(true)
+        while (true)
         {
             yield return new WaitForSeconds(Random.Range(15, 45));
             GameObject newCar = Instantiate(_carPrefab, transform.position, transform.rotation);
-        }   
+        }
     }
 }

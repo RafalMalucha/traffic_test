@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(MeshRenderer))]
 public class RandomMaterialPicker : MonoBehaviour
 {
     [SerializeField] private Material[] _carMaterials;

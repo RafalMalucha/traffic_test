@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(Rigidbody))]
 public class TestCarController : MonoBehaviour
 {
     [SerializeField] private Rigidbody _carRigidbody;
@@ -33,14 +32,14 @@ public class TestCarController : MonoBehaviour
         if (throttle > 0f)
         {
             _carRigidbody.AddForce(
-                transform.forward * throttle * _acceleration,
+                 throttle * _acceleration * transform.forward,
                 ForceMode.Force
             );
         }
         else if (throttle < 0f)
         {
             _carRigidbody.AddForce(
-                transform.forward * throttle * _brakeForce,
+                throttle * _brakeForce * transform.forward,
                 ForceMode.Force
             );
         }
@@ -88,5 +87,3 @@ public class TestCarController : MonoBehaviour
         _maxSpeed = newMaxSpeed;
     }
 }
-
-

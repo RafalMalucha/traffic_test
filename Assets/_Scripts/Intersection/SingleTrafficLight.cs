@@ -7,15 +7,11 @@ public class SingleTrafficLight : MonoBehaviour
     [SerializeField] private GameObject _redLightIndicator;
     [SerializeField] private GameObject _greenLightIndicator;
     [SerializeField] private GameObject _stopTrigger;
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
-        if(_isRed)
+        if (_isRed)
         {
             HandleLightChangeToRed();
         }

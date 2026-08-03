@@ -1,8 +1,7 @@
-using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
-using Unity.VisualScripting;
 
+[RequireComponent(typeof(TestCarController))]
 public class TrafficCarController : MonoBehaviour
 {
     //[SerializeField] private Lane _currnetLane;
@@ -10,7 +9,7 @@ public class TrafficCarController : MonoBehaviour
     [SerializeField] private TestCarController _testCarController;
 
     private bool _recentlyParked = false;
-    
+
     private int _currentLaneNode;
 
     private void Start()
@@ -21,7 +20,7 @@ public class TrafficCarController : MonoBehaviour
 
     private void Update()
     {
-        if(_splineRoadLane)
+        if (_splineRoadLane)
         {
             FollowLane();
         }
@@ -81,9 +80,9 @@ public class TrafficCarController : MonoBehaviour
         {
             Vector3 origin = transform.TransformPoint(offset);
 
-            Debug.DrawRay(origin, transform.forward * 4f, Color.green);
+            Debug.DrawRay(origin, transform.forward * 5f, Color.green);
 
-            if (Physics.Raycast(origin, transform.forward, out RaycastHit hit, 4f))
+            if (Physics.Raycast(origin, transform.forward, out RaycastHit hit, 5f))
             {
                 if (!hit.collider.CompareTag("TrafficTrigger"))
                 {

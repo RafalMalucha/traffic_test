@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class CarDestroyer : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider collider) 
+    private void OnTriggerEnter(Collider collider)
     {
-        if (collider.tag == "Traffic")
+        if (collider.CompareTag("Traffic"))
         {
             Destroy(collider.gameObject);
         }

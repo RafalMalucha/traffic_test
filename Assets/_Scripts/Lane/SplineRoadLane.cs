@@ -9,12 +9,13 @@ using UnityEngine.Splines;
 public class SplineRoadLane : MonoBehaviour
 {
     [Header("Lane Type")]
-    [SerializeField] private RoadLaneType _roadLaneType; 
-    [Space][Space]
+    [SerializeField] private RoadLaneType _roadLaneType;
+    [Space]
+    [Space]
 
     [SerializeField] private SplineContainer _splineContainer;
     [SerializeField] private float _resolution;
-    
+
     private List<Vector3> _laneNodesPositions;
 
     private float3 position;
@@ -28,19 +29,13 @@ public class SplineRoadLane : MonoBehaviour
         CreateLaneNodes();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void CreateLaneNodes()
     {
         _laneNodesPositions = new List<Vector3>();
 
         float step = 1f / _resolution;
 
-        for(int i = 0; i <= _resolution; i++)
+        for (int i = 0; i <= _resolution; i++)
         {
             float t = step * i;
             SampleRoadLane(t);
@@ -55,13 +50,13 @@ public class SplineRoadLane : MonoBehaviour
         nodePosition = (Vector3)position;
     }
 
-    private void OnDrawGizmos() 
+    private void OnDrawGizmos()
     {
         //Handles.matrix = transform.localToWorldMatrix;
 
-        if(_laneNodesPositions != null)
+        if (_laneNodesPositions != null)
         {
-            foreach(Vector3 nodePosition in _laneNodesPositions)
+            foreach (Vector3 nodePosition in _laneNodesPositions)
             {
                 Handles.SphereHandleCap(0, nodePosition, Quaternion.identity, 1f, EventType.Repaint);
             }
