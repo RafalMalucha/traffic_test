@@ -15,7 +15,8 @@ public class TrafficCarController : MonoBehaviour
 
     private void Start()
     {
-        _testCarController.SetNewMaxSpeed(Random.Range(2f, 5f));
+        _testCarController = this.GetComponent<TestCarController>();
+        _testCarController.SetNewMaxSpeed(Random.Range(2f, 4f));
     }
 
     private void Update()

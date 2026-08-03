@@ -349,6 +349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031412bd6fd5e374fb860ba1df519634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SplineRoadLane
+  _roadLaneType: 0
   _splineContainer: {fileID: 323836701221487981}
   _resolution: 6
 --- !u!1 &1018266395089422806
@@ -396,6 +397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031412bd6fd5e374fb860ba1df519634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SplineRoadLane
+  _roadLaneType: 0
   _splineContainer: {fileID: 1254816061964326949}
   _resolution: 4
 --- !u!1 &1105401443749628882
@@ -443,6 +445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031412bd6fd5e374fb860ba1df519634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SplineRoadLane
+  _roadLaneType: 0
   _splineContainer: {fileID: 36661717794484735}
   _resolution: 3
 --- !u!1 &1188414119901147278
@@ -490,6 +493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031412bd6fd5e374fb860ba1df519634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SplineRoadLane
+  _roadLaneType: 0
   _splineContainer: {fileID: 991293667086914993}
   _resolution: 4
 --- !u!1 &1222978864176496278
@@ -537,6 +541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031412bd6fd5e374fb860ba1df519634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SplineRoadLane
+  _roadLaneType: 0
   _splineContainer: {fileID: 7505531986817096534}
   _resolution: 4
 --- !u!1 &1392210730185596105
@@ -990,6 +995,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031412bd6fd5e374fb860ba1df519634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SplineRoadLane
+  _roadLaneType: 0
   _splineContainer: {fileID: 4926471923712819612}
   _resolution: 6
 --- !u!1 &2377393726301088458
@@ -1037,6 +1043,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031412bd6fd5e374fb860ba1df519634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SplineRoadLane
+  _roadLaneType: 0
   _splineContainer: {fileID: 6135099378842262219}
   _resolution: 3
 --- !u!1 &2457099897528180786
@@ -1485,6 +1492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031412bd6fd5e374fb860ba1df519634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SplineRoadLane
+  _roadLaneType: 0
   _splineContainer: {fileID: 272192515253550506}
   _resolution: 6
 --- !u!1 &3664919369304153445
@@ -1532,6 +1540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031412bd6fd5e374fb860ba1df519634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SplineRoadLane
+  _roadLaneType: 0
   _splineContainer: {fileID: 2746320731715751520}
   _resolution: 6
 --- !u!1 &3668495854718906846
@@ -1691,6 +1700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031412bd6fd5e374fb860ba1df519634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SplineRoadLane
+  _roadLaneType: 0
   _splineContainer: {fileID: 3826845044455536785}
   _resolution: 4
 --- !u!1 &4153546405133404802
@@ -2105,6 +2115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031412bd6fd5e374fb860ba1df519634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SplineRoadLane
+  _roadLaneType: 0
   _splineContainer: {fileID: 2953160424077340480}
   _resolution: 3
 --- !u!1 &6454056164439004987
@@ -2899,6 +2910,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031412bd6fd5e374fb860ba1df519634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SplineRoadLane
+  _roadLaneType: 0
   _splineContainer: {fileID: 4256335945053109476}
   _resolution: 3
 --- !u!1 &8688964367782810693
@@ -3183,7 +3195,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 89
+  m_VersionIndex: 177
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -3203,7 +3215,7 @@ MonoBehaviour:
   m_Shape:
     rid: 2656823231178604620
   m_ShapeRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_UnmodifiedMeshVersion: 89
+  m_UnmodifiedMeshVersion: 177
   m_Size: {x: 16, y: 1, z: 16}
   m_LocalCenter: {x: 0, y: 0, z: 0}
   references:

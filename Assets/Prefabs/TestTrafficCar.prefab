@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TestCarController
   _carRigidbody: {fileID: 4451250263393900020}
-  _acceleration: 10
+  _acceleration: 25
   _maxSpeed: 20
   _steering: 50
   _brakeForce: 25
@@ -127,6 +127,7 @@ GameObject:
   - component: {fileID: 8104102631653578053}
   - component: {fileID: 7181144642850469625}
   - component: {fileID: 1262573126952493017}
+  - component: {fileID: 15864086539371173}
   m_Layer: 0
   m_Name: Car
   m_TagString: Untagged
@@ -227,3 +228,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &15864086539371173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7330034362495471836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea07cfa6b6721e942b564c36e4e6d26a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  _carMaterials:
+  - {fileID: 2100000, guid: 995bd17451e9a9e4fb164bcff363305e, type: 2}
+  - {fileID: 2100000, guid: 88f13adb28085b24bad43f5caf5445e5, type: 2}
+  - {fileID: 2100000, guid: 2936e0389fbe3b44e8bb7a07e09e98c4, type: 2}
+  - {fileID: 2100000, guid: ff3c6883b66bae547bc6c6725c1512eb, type: 2}
+  - {fileID: 2100000, guid: a7487ccd957f75049a259410d026e758, type: 2}
+  - {fileID: 2100000, guid: 9d55ca97d5f4b114da85ca94aa786e9a, type: 2}
+  - {fileID: 2100000, guid: ee235677f118235459cc5ba461b99a17, type: 2}
